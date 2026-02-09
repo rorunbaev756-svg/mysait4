@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureLeaf Cosmetics - Органическая косметика премиум-класса</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2e8b57;
+            --primary-light: #4caf7d;
+            --primary-dark: #1a5c3a;
+            --secondary: #f8f9f7;
+            --accent: #e8f5e9;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --white: #ffffff;
+            --gold: #d4af37;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* Leaf Background Pattern */
+        .leaf-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40,25 C55,10 75,10 90,25 C105,40 105,60 90,75 C75,90 55,90 40,75 C25,60 25,40 40,25 Z' fill='none' stroke='%232e8b57' stroke-width='0.7' opacity='0.05'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo i {
+            margin-right: 12px;
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 35px;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            color: var(--text);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cart-icon:hover {
+            color: var(--primary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.85) 0%, rgba(26, 92, 58, 0.9) 100%), url('https://images.unsplash.com/photo-1600857062242-af5ef05445d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--secondary));
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            color: var(--white);
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn i {
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            color: var(--primary-dark);
+            font-size: 42px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--text-light);
+            font-size: 17px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat-text {
+            font-size: 16px;
+            color: var(--text-light);
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--secondary);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            color: white;
+        }
+
+        .feature-card:hover .feature-icon,
+        .feature-card:hover h3,
+        .feature-card:hover p {
+            color: white;
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        /* Products Section */
+        .products {
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 500px;
+        }
+
+        .product-filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-badge.gold {
+            background-color: var(--gold);
+        }
+
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.1));
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 22px;
+        }
+
+        .product-info p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 24px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .rating {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Order Section */
+        .order {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .order-container {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .order-info {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .order-info h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .order-info ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .order-info ul li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .order-info ul li i {
+            margin-right: 15px;
+            margin-top: 5px;
+            color: var(--gold);
+        }
+
+        .order-form {
+            flex: 1;
+            background-color: var(--secondary);
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+        }
+
+        .testimonial-slider {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 100px;
+            color: var(--primary-light);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            margin-right: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 15px;
+            text-align: left;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .faq-question {
+            background-color: var(--secondary);
+            padding: 25px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: var(--accent);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+
+        .faq-item.active .faq-question {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 30px;
+            max-height: 500px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30,20 C40,10 60,10 70,20 C80,30 80,50 70,60 C60,70 40,70 30,60 C20,50 20,30 30,20 Z' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn {
+            background-color: white;
+            color: var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+
+        .footer-column p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 1;
+            padding-left: 8px;
+        }
+
+        .footer-column ul li a i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            font-size: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.7;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content,
+            .order-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 40px;
+                transform: none;
+            }
+            
+            .about-image:hover {
+                transform: none;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 130px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.5s ease;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-icon {
+            font-size: 70px;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .modal h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .modal p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .modal-btn {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body class="leaf-bg">
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i>
+                PureLeaf
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#order">Заказать</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Чистая природа для вашей красоты</h1>
+            <p>Органическая косметика премиум-класса, созданная с заботой о вашей коже и окружающей среде. Натуральные ингредиенты, эффективные формулы и этичное производство.</p>
+            <div class="btn-group">
+                <a href="#order" class="btn pulse">Сделать заказ <i class="fas fa-arrow-right"></i></a>
+                <a href="#about" class="btn btn-outline">Узнать больше</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title">О PureLeaf Cosmetics</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Натуральная косметика для осознанной красоты</h3>
+                    <p>Мы создаем косметику, которая не только заботится о вашей коже, но и о нашей планете. Все наши продукты на 100% органические, не тестируются на животных и упаковываются в экологически чистые материалы.</p>
+                    <p>Наша философия проста: природа уже создала все необходимое для красоты и здоровья. Мы лишь бережно собираем эти дары и превращаем их в эффективные косметические средства.</p>
+                    <p>Каждый продукт PureLeaf проходит строгий контроль качества и создается с любовью к природе и к вам.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-text">Натуральные ингредиенты</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-text">Лет на рынке</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10k+</div>
+                            <div class="stat-text">Довольных клиентов</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div style="background: linear-gradient(135deg, var(--primary-light), var(--primary)); height: 500px; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 24px; font-weight: 500;">Изображение натуральных ингредиентов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section-padding">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>100% Органические</h3>
+                    <p>Все наши продукты созданы из натуральных органических ингредиентов без химических добавок и синтетических консервантов.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Эко-упаковка</h3>
+                    <p>Мы используем только перерабатываемые и биоразлагаемые материалы для упаковки, чтобы минимизировать воздействие на окружающую среду.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Не тестируется на животных</h3>
+                    <p>Наша продукция cruelty-free и не тестируется на животных на всех этапах производства. Мы за этичное потребление.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Высокое качество</h3>
+                    <p>Все продукты проходят строгий контроль качества и имеют сертификаты органической косметики международного стандарта.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products section-padding" id="products">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Наша продукция</h2>
+                    <p class="section-subtitle">Откройте для себя нашу коллекцию органической косметики, созданной для заботы о вашей коже и окружающей среде</p>
+                </div>
+            </div>
+            
+            <div class="product-filters">
+                <button class="filter-btn active" data-filter="all">Все товары</button>
+                <button class="filter-btn" data-filter="face">Уход за лицом</button>
+                <button class="filter-btn" data-filter="body">Уход за телом</button>
+                <button class="filter-btn" data-filter="hair">Уход за волосами</button>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card" data-category="face">
+                    <div class="product-badge gold">Хит продаж</div>
+                    <div class="product-image">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Омолаживающий крем с алоэ вера</h3>
+                        <p>Натуральный крем с экстрактом алоэ вера и маслом шиповника для упругой и сияющей кожи. Подходит для всех типов кожи.</p>
+                        <div class="product-price">
+                            <div class="price">
+                                <span class="old-price">3 200 ₽</span>
+                                2 500 ₽
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(128)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Омолаживающий крем с алоэ вера" data-price="2500">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 50 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-category="face">
+                    <div class="product-badge">Новинка</div>
+                    <div class="product-image">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Очищающее масло с ромашкой</h3>
+                        <p>Нежное масло для снятия макияжа и очищения кожи на основе органических масел и экстракта ромашки. Не забивает поры.</p>
+                        <div class="product-price">
+                            <div class="price">1 800 ₽</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(64)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Очищающее масло с ромашкой" data-price="1800">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 100 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-category="face">
+                    <div class="product-image">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Тонизирующая сыворотка с витамином C</h3>
+                        <p>Концентрированная сыворотка с витамином C для сияния и ровного тона кожи. Уменьшает пигментацию и признаки старения.</p>
+                        <div class="product-price">
+                            <div class="price">3 200 ₽</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(92)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Тонизирующая сыворотка с витамином C" data-price="3200">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 30 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-category="face">
+                    <div class="product-image">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Увлажняющая маска с гиалуроновой кислотой</h3>
+                        <p>Насыщающая маска с гиалуроновой кислотой и экстрактом зеленого чая для глубокого увлажнения и восстановления кожи.</p>
+                        <div class="product-price">
+                            <div class="price">2 100 ₽</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(76)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Увлажняющая маска с гиалуроновой кислотой" data-price="2100">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 50 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-category="body">
+                    <div class="product-image">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Увлажняющее молочко для тела</h3>
+                        <p>Легкое молочко с маслом ши и экстрактом лаванды для интенсивного увлажнения и питания кожи тела. Быстро впитывается.</p>
+                        <div class="product-price">
+                            <div class="price">1 600 ₽</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(53)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Увлажняющее молочко для тела" data-price="1600">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 200 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card" data-category="hair">
+                    <div class="product-badge">Бестселлер</div>
+                    <div class="product-image">
+                        <i class="fas fa-air-freshener"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>Восстанавливающая маска для волос</h3>
+                        <p>Питательная маска с кератином и маслом арганы для поврежденных волос. Восстанавливает структуру и придает блеск.</p>
+                        <div class="product-price">
+                            <div class="price">2 400 ₽</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span style="color: var(--text-light); margin-left: 5px;">(118)</span>
+                            </div>
+                        </div>
+                        <a href="#order" class="btn" data-product="Восстанавливающая маска для волос" data-price="2400">Заказать</a>
+                        <div class="product-meta">
+                            <span><i class="fas fa-weight"></i> 250 мл</span>
+                            <span><i class="fas fa-clock"></i> Доставка 1-2 дня</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section-padding" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших клиентов</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">Кожа стала выглядеть значительно лучше после месяца использования крема от PureLeaf. Исчезли покраснения, кожа стала более увлажненной и сияющей. Особенно нравится, что все продукты полностью натуральные и не вызывают аллергии. Рекомендую!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Марина Иванова</h4>
+                            <p>Клиентка 2 года</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section-padding">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какой срок годности у вашей продукции?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Срок годности нашей органической косметики составляет от 12 до 24 месяцев с даты производства. Конкретный срок указан на упаковке каждого продукта. Рекомендуем хранить косметику в прохладном, сухом месте, защищенном от прямых солнечных лучей.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Подходит ли ваша косметика для чувствительной кожи?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, наша косметика идеально подходит для чувствительной кожи. Мы используем только натуральные, гипоаллергенные ингредиенты, не содержащие агрессивных химических компонентов, парабенов, сульфатов и синтетических отдушек. Однако перед первым использованием рекомендуем провести тест на небольшом участке кожи.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как осуществляется доставка?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы осуществляем доставку по всей России через курьерские службы и почту России. В Москве и Санкт-Петербурге доступна курьерская доставка в течение 1-2 дней. В другие регионы доставка занимает от 3 до 10 дней в зависимости от удаленности. При заказе от 3000 рублей доставка бесплатная.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Возможен ли возврат товара?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, мы принимаем возврат товара в течение 14 дней с момента получения заказа, если товар не был в употреблении, сохранен его товарный вид и упаковка. Для инициации возврата свяжитесь с нашей службой поддержки, и мы поможем вам оформить возврат.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order section-padding" id="order">
+        <div class="container">
+            <h2 class="section-title">Сделать заказ</h2>
+            <div class="order-container">
+                <div class="order-info">
+                    <h3>Почему стоит заказать у нас?</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Бесплатная доставка при заказе от 3000 ₽</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Гарантия качества всех продуктов</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Возврат средств в течение 14 дней</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Консультация специалиста по уходу за кожей</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Подарок при первом заказе</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Скидка 10% на следующую покупку</div>
+                        </li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="order-form">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Номер телефона *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Электронная почта</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="product">Выберите продукт *</label>
+                            <select id="product" name="product" required>
+                                <option value="">-- Выберите продукт --</option>
+                                <option value="Омолаживающий крем с алоэ вера">Омолаживающий крем с алоэ вера - 2 500 ₽</option>
+                                <option value="Очищающее масло с ромашкой">Очищающее масло с ромашкой - 1 800 ₽</option>
+                                <option value="Тонизирующая сыворотка с витамином C">Тонизирующая сыворотка с витамином C - 3 200 ₽</option>
+                                <option value="Увлажняющая маска с гиалуроновой кислотой">Увлажняющая маска с гиалуроновой кислотой - 2 100 ₽</option>
+                                <option value="Увлажняющее молочко для тела">Увлажняющее молочко для тела - 1 600 ₽</option>
+                                <option value="Восстанавливающая маска для волос">Восстанавливающая маска для волос - 2 400 ₽</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quantity">Количество</label>
+                            <input type="number" id="quantity" name="quantity" min="1" value="1">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Дополнительные пожелания</label>
+                            <textarea id="message" name="message" placeholder="Например, предпочтительное время доставки или особые пожелания к заказу"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn">Отправить заказ в WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Готовы начать заботиться о своей коже?</h2>
+            <p>Присоединяйтесь к тысячам довольных клиентов, которые уже выбрали натуральную косметику PureLeaf</p>
+            <a href="#order" class="btn">Сделать заказ <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PureLeaf Cosmetics</h3>
+                    <p>Органическая косметика, созданная с любовью к природе и заботой о вас. Мы верим, что настоящая красота начинается с заботы о себе и окружающем мире.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>
+                            <a href="tel:+79991234567">
+                                <i class="fas fa-phone"></i>
+                                +996 222 79 14 04
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@pureleaf-cosmetics.ru">
+                                <i class="fas fa-envelope"></i>
+                                info@pureleaf-cosmetics.ru
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Москва, ул. Экологическая, 15
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-clock"></i>
+                                Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> О нас</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-right"></i> Продукция</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Отзывы</a></li>
+                        <li><a href="#order"><i class="fas fa-chevron-right"></i> Заказать</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Подписка на новости</h3>
+                    <p>Подпишитесь на нашу рассылку, чтобы первыми узнавать о новых продуктах, акциях и специальных предложениях.</p>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <input type="email" placeholder="Ваш email" style="padding: 12px 15px; font-size: 14px;">
+                        <button class="btn" style="width: 100%; margin-top: 10px; padding: 12px;">Подписаться</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 PureLeaf Cosmetics. Все права защищены.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Заказ успешно отправлен!</h3>
+            <p>Мы свяжемся с вами в ближайшее время для подтверждения заказа. Спасибо, что выбрали PureLeaf Cosmetics!</p>
+            <button class="btn modal-btn" id="continueShopping">Продолжить покупки</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Product filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Product buttons - auto fill form
+        const productButtons = document.querySelectorAll('.product-card .btn');
+        const productSelect = document.getElementById('product');
+        
+        productButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const productName = button.getAttribute('data-product');
+                
+                // Find and select the corresponding option
+                for (let i = 0; i < productSelect.options.length; i++) {
+                    if (productSelect.options[i].text.includes(productName)) {
+                        productSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+                
+                // Scroll to order form
+                document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Form submission
+        const orderForm = document.getElementById('orderForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        const continueShopping = document.getElementById('continueShopping');
+        
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const message = document.getElementById('message').value;
+            
+            // Format WhatsApp message
+            let whatsappMessage = `Новый заказ от ${name}%0A`;
+            whatsappMessage += `Телефон: ${phone}%0A`;
+            if (email) whatsappMessage += `Email: ${email}%0A`;
+            whatsappMessage += `Продукт: ${product}%0A`;
+            whatsappMessage += `Количество: ${quantity}%0A`;
+            if (message) whatsappMessage += `Дополнительно: ${message}`;
+            
+            // Replace with your actual WhatsApp number
+            const phoneNumber = "+99622791404";
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, '_blank');
+            
+            // Show success modal
+            successModal.style.display = 'flex';
+            
+            // Reset form
+            orderForm.reset();
+        });
+        
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+        
+        continueShopping.addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.style.display = 'none';
+            }
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.padding = '20px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-content, .feature-card, .product-card, .testimonial, .faq-item');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        window.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.about-content, .feature-card, .product-card, .testimonial, .faq-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Trigger initial animation
+            setTimeout(animateOnScroll, 100);
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
